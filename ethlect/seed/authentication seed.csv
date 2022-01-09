@@ -1,0 +1,12 @@
+﻿userID,accountType,firstName,lastName,email,password,secret,address,accountVerified,constituency
+1,admin,John,Garcia,john_garcia@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,D01W6P0,TRUE,Dublin Central
+2,voter,Aoife,McDonnald,aoife_mcdonnald@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,Y35TH2A,TRUE,Galway East
+3,voter,Sarah,Cozonac,sarah_cozonac@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,P51YX4D,TRUE,Cork East
+4,voter,Saoirse,Nash,saoirse_nash@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,F91A3N3,TRUE,Sligo-Leitrim
+5,voter,Alan,Smith,alan_smith@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,H23YV38,TRUE,Cavan-Monaghan
+6,voter,James,Johnson,james_johnson@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,X91Y8CR,TRUE,Longford-Waterford
+7,voter,George,Brown,george_brown@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,A83K822,TRUE,Meath East
+8,voter,Sabrina,James,sabrina_james@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,D07EK53,TRUE,Dublin Central
+9,voter,Alehandro,Miller,alehandro_miller@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,A67PC78,TRUE,Wicklow
+10,voter,Sergio,Davis,sergio_davis@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,V95H9Y4,TRUE,Claire
+11,voter,Emily,Williams,emily_williams@gmail.com,5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8,[7WG}eTAeZ3XU6#I5#$bBE!M*;0}9(bT,P43HT67,TRUE,Cork West

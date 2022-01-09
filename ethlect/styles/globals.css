@@ -1,0 +1,161 @@
+html,
+body {
+	padding: 0 0 30px 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#navbar {
+	margin-bottom: 20px;
+}
+
+#navbar-text {
+	margin-right: 20px;
+}
+
+.create-tab-card {
+	margin: 20px 0;
+}
+
+#create-menu {
+	margin: 20px 0;
+}
+
+.centre-buttons {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+.heading {
+	margin-bottom: 20px;
+}
+
+.margin-div {
+	margin-bottom: 30px;
+}
+
+.button-margin {
+	margin-right: 10px;
+}
+
+#login-grid {
+	height: 100%;
+	width: 100%;
+	display: grid;
+}
+
+#login-logo {
+	width: 50%;
+	align-self: center;
+	justify-self: center;
+}
+
+#login-grid {
+	padding: 20px 0;
+}
+
+#login-body {
+	height: calc(100vh - 400px);
+	display: grid;
+}
+
+#card-body {
+	height: fit-content;
+	align-self: center;
+}
+
+.home-section-img-section {
+	padding: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.home-section-img-wrap {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.home-section-img {
+	width: 100%;
+	max-width: 250px;
+}
+
+.home-section-text {
+	display: flex;
+	align-items: center;
+}
+
+.home-h3 {
+	font-size: 1.8em;
+	font-weight: bold;
+	margin-bottom: 10px;
+	line-height: 1.5em;
+}
+
+.home-text {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.home-section {
+	width: 100%;
+}
+
+@media (max-width: 992px) {
+	.home-h3 {
+		font-size: 1.5em;
+	}
+
+	.home-text {
+		font-size: 1em;
+	}
+
+	.home-section-img {
+		max-width: 150px;
+	}
+
+	.home-section {
+		margin: 40px 0;
+	}
+
+	.home-h1 {
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 768px) {
+	.home-text {
+		text-align: center;
+	}
+
+	.home-h3 {
+		text-align: center;
+	}
+}
+
+.home-table {
+	width: 100%;
+}
+
+.check-icon {
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+}
