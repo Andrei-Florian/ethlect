@@ -73,8 +73,6 @@ async function prepareBallots(_ballots) {
 						_ballots.length - i
 					} because voter ${_ballots[i].userID} cast a newer ballot`
 				);
-
-				return { success: false };
 			}
 		}
 

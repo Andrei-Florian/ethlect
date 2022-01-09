@@ -49,7 +49,9 @@ class ElectionsNow extends Component {
 								Tabulated!
 							</Alert>
 						) : electionsObj.electoralPeriod ? (
-							this.props.Props.session &&
+							(this.props.Props.session &&
+								this.props.Props.session.user.accountType ===
+									'admin') ||
 							this.props.Props.session.user.idVerified ==
 								'true' ? (
 								<Alert variant='info'>

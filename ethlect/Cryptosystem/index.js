@@ -400,22 +400,20 @@ async function createHash(_message) {
 }
 
 /**
- * Creates a proof that proves that a given ciphertext has a given plaintext without revealing the key
+ * Creates a proof that proves that a given ciphertext decrypts to a given plaintext without revealing the key
  * @param {String} k A random scalar value
  * @param {String} g The g value of the ElGamal instance
  * @param {String} p The p value of the ElGamal instance
- * @param {String} s The key used to encrypt the initial ballot set
+ * @param {String} x The x value of the ElGamal instance
  * @param {Object} _encryptedMessage The ciphertext to prove
  * @returns {success: boolean, proof: {c: String, r: String}}
  */
-async function createDecryptionProof(k, g, p, s, _encryptedMessage) {
+async function createDecryptionProof(k, g, p, x, _encryptedMessage) {
 	try {
 		const parsedK = Utils.parseBigInt(k);
 		const parsedG = Utils.parseBigInt(g);
 		const parsedP = Utils.parseBigInt(p);
-		const parsedS = Utils.parseBigInt(s);
-
-		const parsedA = Utils.parseBigInt(_encryptedMessage.a);
+		const parsedX = Utils.parseBigInt(x);
 		const parsedB = Utils.parseBigInt(_encryptedMessage.b);
 
 		// calculate c
@@ -430,10 +428,12 @@ async function createDecryptionProof(k, g, p, s, _encryptedMessage) {
 
 		// convert c to number
 		const cNum = Utils.parseBigInt(hashedC.hash);
-		const cReady = cNum.mod(parsedP);
+		const cReady = cNum.mod(parsedP.subtract(BigInt.ONE));
 
 		// calculate r
-		const r = parsedK.subtract(cReady.multiply(parsedS)).mod(parsedP);
+		const r = parsedK
+			.subtract(cReady.multiply(parsedX))
+			.mod(parsedP.subtract(BigInt.ONE));
 
 		return {
 			success: true,

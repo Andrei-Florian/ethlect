@@ -137,10 +137,10 @@ async function decryptBallot(_ballot, _elgamal, x) {
 			);
 
 			if (newCandidate.success) {
-				console.log(`[INFO] Decrypted candidate ${j}`);
+				console.log(`[INFO] Decrypted candidate ${j + 1}`);
 				ballot.push(newCandidate.candidate);
 			} else {
-				console.log(`[ERROR] Failed to decrypt candidate ${j}`);
+				console.log(`[ERROR] Failed to decrypt candidate ${j + 1}`);
 				return { success: false };
 			}
 		}
@@ -159,16 +159,16 @@ async function decryptBallots(_ballots, _elgamal, x) {
 		let ballots = [];
 
 		for (let i = 0; i < ballotsJSON.length; i++) {
-			console.log(`[INFO] Decrypting ballot ${i}`);
+			console.log(`[INFO] Decrypting ballot ${i + 1}`);
 
 			const newBallot = await decryptBallot(ballotsJSON[i], _elgamal, x);
 
 			if (newBallot.success) {
-				console.log(`[SUCCESS] Decrypted ballot ${i}`);
+				console.log(`[SUCCESS] Decrypted ballot ${i + 1}`);
 				console.log('');
 				ballots.push(newBallot.ballot);
 			} else {
-				console.log(`[ERROR] Failed to decrypt ballot ${i}`);
+				console.log(`[ERROR] Failed to decrypt ballot ${i + 1}`);
 				console.log('');
 				return { success: false };
 			}
@@ -218,9 +218,6 @@ async function matchCandidate(_candidateID, _candidates) {
 		console.log(_candidates);
 
 		for (let i = 0; i < _candidates.length; i++) {
-			console.log(`[INFO] Candidate ${i}`);
-			console.log(_candidates[i]);
-
 			for (let j = 0; j < _candidates[i].candidateID.length; j++) {
 				if (_candidates[i].candidateID[j] == _candidateID) {
 					return {
@@ -297,6 +294,7 @@ async function generateProof(_inputBallots, _outputBallots, _elgamal, _key) {
 
 		if (randomValue.success) {
 			for (let i = 0; i < _inputBallots.length; i++) {
+				console.log(`[INFO] Generating proof ${i + 1}`);
 				let ballotProofs = [];
 
 				for (let j = 0; j < _inputBallots[i].length; j++) {
@@ -311,8 +309,8 @@ async function generateProof(_inputBallots, _outputBallots, _elgamal, _key) {
 					if (proof.success) {
 						// format the proof object
 						const proofObject = {
-							encryptedCandidateID: _inputBallots[i][j],
-							decryptedCandidate: _outputBallots[i][j],
+							inputCandidate: _inputBallots[i][j],
+							outputCandidate: _outputBallots[i][j],
 							proof: proof.proof,
 						};
 
@@ -343,6 +341,7 @@ async function generateProof(_inputBallots, _outputBallots, _elgamal, _key) {
 			interactiveProof: JSON.stringify(proofs),
 		};
 
+		console.log('[Success] Generated proofs');
 		return { success: true, proof: proofObj };
 	} catch (error) {
 		console.log(error);
@@ -514,9 +513,7 @@ export default async function decrypt(req, res) {
 																			),
 																			parsedBallots.ballots,
 																			elGamalObject,
-																			election
-																				.election
-																				.privateEncryptionkey
+																			derivedPrivateKey.privateKey
 																		);
 
 																	if (

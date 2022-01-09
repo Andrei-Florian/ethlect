@@ -45,9 +45,6 @@ const ElectionSchema = new mongoose.Schema({
 	rsaKeypair: {
 		type: String,
 	},
-	privateEncryptionkey: {
-		type: String,
-	},
 	constituencies: {
 		type: [Constituencies.schema],
 	},

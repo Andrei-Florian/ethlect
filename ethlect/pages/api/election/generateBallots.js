@@ -826,7 +826,6 @@ async function addBallotsToDB(
 	_electionID,
 	_constituencies,
 	_proof,
-	_privateKey,
 	_elgamal,
 	_inputBallots,
 	_outputBallots,
@@ -868,7 +867,6 @@ async function addBallotsToDB(
 			{
 				ballots: _ballots,
 				constituencies: _constituencies,
-				privateEncryptionkey: _privateKey,
 				$push: { shuffles: shuffleObj },
 			}
 		);
@@ -961,7 +959,6 @@ export default async function generateBallots(req, res) {
 																data.electionID,
 																ballots.candidateIDs,
 																proof.proof,
-																localX.x,
 																elgamal.instance,
 																ballots.inputBallots,
 																shuffledBallots.ballotSet,
