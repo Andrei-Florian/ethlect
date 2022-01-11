@@ -581,15 +581,13 @@ function convertString(_input) {
 
 async function generateChallengeBits(_ballots, n) {
 	try {
-		// deconstruct the ballot sets
-		let ballots = [];
+		const parsedBallots = await parseGeneratedBallots(_ballots, false);
+		if (!parsedBallots.success) return { success: false };
 
-		for (let i = 0; i < _ballots.length; i++) {
-			ballots.push(_ballots[i].shuffledBallots);
-		}
+		console.log('parsedBallots', parsedBallots);
 
 		// stringify the ballot sets
-		const ballotsJSON = JSON.stringify(ballots);
+		const ballotsJSON = JSON.stringify(parsedBallots.proofs);
 
 		// create hash of the ballot sets
 		const hash = await makeHash(ballotsJSON);
@@ -603,11 +601,12 @@ async function generateChallengeBits(_ballots, n) {
 		// convert array to bits
 		const bitsArray = convertString(bytesArray);
 
-		console.log('hash', bitsArray.bits);
-
 		if (bitsArray.success) {
 			// get the first n bits
-			const bits = bitsArray.bits.substring(bitsArray.bits.length - n, n);
+			const bits = bitsArray.bits.substring(
+				bitsArray.bits.length - n,
+				bitsArray.bits.length
+			);
 
 			return { success: true, bits: bits };
 		} else {
@@ -791,7 +790,7 @@ async function parseOutputBallots(_outputBallots) {
 	}
 }
 
-async function parseGeneratedBallots(_generatedBallots) {
+async function parseGeneratedBallots(_generatedBallots, _stringify) {
 	try {
 		let proofs = [];
 
@@ -811,7 +810,11 @@ async function parseGeneratedBallots(_generatedBallots) {
 				ballots.push(ballot.ballots);
 			}
 
-			proofs.push(JSON.stringify(ballots));
+			if (_stringify) {
+				proofs.push(JSON.stringify(ballots));
+			} else {
+				proofs.push(ballots);
+			}
 		}
 
 		return { success: true, proofs: proofs };
@@ -836,7 +839,10 @@ async function addBallotsToDB(
 		const outputBallots = await parseOutputBallots(_outputBallots);
 		if (!outputBallots.success) return { success: false };
 
-		const generatedBallots = await parseGeneratedBallots(_generatedBallots);
+		const generatedBallots = await parseGeneratedBallots(
+			_generatedBallots,
+			true
+		);
 		if (!generatedBallots.success) return { success: false };
 
 		const elGamalObj = {

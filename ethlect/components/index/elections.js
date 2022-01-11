@@ -52,7 +52,8 @@ class ElectionsNow extends Component {
 							(this.props.Props.session &&
 								this.props.Props.session.user.accountType ===
 									'admin') ||
-							this.props.Props.session.user.idVerified ==
+							(this.props.Props.session &&
+								this.props.Props.session.user.idVerified) ==
 								'true' ? (
 								<Alert variant='info'>
 									This Election is Running at Present and

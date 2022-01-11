@@ -1,0 +1,468 @@
+[{
+  "_id": {
+    "$oid": "61c8668f4d0a916babff106d"
+  },
+  "userID": 1,
+  "accountVerified": true,
+  "accountType": "admin",
+  "email": "andrei_florian@universumco.com",
+  "password": "o7kTBA4qUP0sNfs5BxdANYIENnhHSCbb7gOlvxcFLzI=",
+  "salt": "4479c3b433fbfbda24d4bfde7ad975f6",
+  "secret": "sTvt,0&VXM.yK^0z#VfZ/1m]1bXlL<0<",
+  "constituency": "fingal county council"
+},{
+  "_id": {
+    "$oid": "61d44fe18b1f8651669ef156"
+  },
+  "userID": 2,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user1@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d4536c8ba95f700ccc99a5"
+  },
+  "userID": 3,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user2@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453898ba95f700ccc99a6"
+  },
+  "userID": 4,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user3@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453918ba95f700ccc99a7"
+  },
+  "userID": 5,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user4@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d4539b8ba95f700ccc99a8"
+  },
+  "userID": 6,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user5@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453a38ba95f700ccc99a9"
+  },
+  "userID": 7,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user6@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453ad8ba95f700ccc99aa"
+  },
+  "userID": 8,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user7@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453b48ba95f700ccc99ab"
+  },
+  "userID": 9,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user8@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453bc8ba95f700ccc99ac"
+  },
+  "userID": 10,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user9@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453c78ba95f700ccc99ad"
+  },
+  "userID": 11,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user10@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin central"
+},{
+  "_id": {
+    "$oid": "61d453d78ba95f700ccc99ae"
+  },
+  "userID": 12,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user11@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d453de8ba95f700ccc99af"
+  },
+  "userID": 13,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user12@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d453e68ba95f700ccc99b0"
+  },
+  "userID": 14,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user13@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d453ed8ba95f700ccc99b1"
+  },
+  "userID": 15,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user14@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d453f68ba95f700ccc99b2"
+  },
+  "userID": 16,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user15@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d453fd8ba95f700ccc99b3"
+  },
+  "userID": 17,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user16@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d454718ba95f700ccc99b4"
+  },
+  "userID": 18,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user17@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d454a28ba95f700ccc99bd"
+  },
+  "userID": 19,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user18@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d454a28ba95f700ccc99be"
+  },
+  "userID": 20,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user19@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d454a28ba95f700ccc99bf"
+  },
+  "userID": 21,
+  "accountVerified": true,
+  "idVerified": "false",
+  "accountType": "voter",
+  "email": "user20@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99cb"
+  },
+  "userID": 23,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user22@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99ca"
+  },
+  "userID": 22,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user21@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99cc"
+  },
+  "userID": 24,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user23@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99ce"
+  },
+  "userID": 26,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user25@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99cf"
+  },
+  "userID": 27,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user26@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99d0"
+  },
+  "userID": 28,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user27@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99cd"
+  },
+  "userID": 25,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user24@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99d1"
+  },
+  "userID": 29,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user28@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99d2"
+  },
+  "userID": 30,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user29@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d455cf8ba95f700ccc99d3"
+  },
+  "userID": 31,
+  "accountVerified": true,
+  "idVerified": "true",
+  "accountType": "voter",
+  "email": "user30@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin west"
+},{
+  "_id": {
+    "$oid": "61d456c88ba95f700ccc99d8"
+  },
+  "userID": 36,
+  "accountVerified": true,
+  "idVerified": "false",
+  "accountType": "voter",
+  "email": "user35@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d456c88ba95f700ccc99d4"
+  },
+  "userID": 32,
+  "accountVerified": true,
+  "idVerified": "false",
+  "accountType": "voter",
+  "email": "user31@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d456c88ba95f700ccc99d5"
+  },
+  "userID": 33,
+  "accountVerified": true,
+  "idVerified": "false",
+  "accountType": "voter",
+  "email": "user32@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d456c88ba95f700ccc99d6"
+  },
+  "userID": 34,
+  "accountVerified": true,
+  "idVerified": "false",
+  "accountType": "voter",
+  "email": "user33@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+},{
+  "_id": {
+    "$oid": "61d456c88ba95f700ccc99d7"
+  },
+  "userID": 35,
+  "accountVerified": true,
+  "idVerified": "false",
+  "accountType": "voter",
+  "email": "user34@gmail.com",
+  "password": "QX28UkebJveeu2bVgXD0nXCYzJ2te/YLK6vyHixibQw=",
+  "salt": "fc2b1b7e9332c1a6b6cd3ddfdd9baa4c",
+  "secret": "}t*AMf/ozRpXhT0(2zN%^U4KCS@)MrTI",
+  "constituency": "dublin east"
+}]

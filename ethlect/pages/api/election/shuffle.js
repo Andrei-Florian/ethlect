@@ -305,7 +305,10 @@ async function generateChallengeBits(_ballots, n) {
 
 		if (bitsArray.success) {
 			// get the first n bits
-			const bits = bitsArray.bits.substring(bitsArray.bits.length - 1, n);
+			const bits = bitsArray.bits.substring(
+				bitsArray.bits.length - n,
+				bitsArray.bits.length
+			);
 
 			return { success: true, bits: bits };
 		} else {

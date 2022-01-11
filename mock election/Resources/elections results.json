@@ -1,0 +1,38 @@
+[
+	{
+		"_id": {
+			"$oid": "61dc774b94003b989e304112"
+		},
+		"electionResults": [
+			"[\"Daniel Lowry\",\"Aoife Doloras\"]",
+			"[\"Lilianna Gonzalez\",\"Makai Hensley\"]",
+			"[\"Jamie Quinn\",\"Lora Dwane\"]",
+			"[\"Sean Boyle\",\"Aoife Doloras\"]",
+			"[\"Aoife Doloras\",\"Lora Dwane\"]",
+			"[\"Sean Boyle\",\"James Jackson\"]",
+			"[\"Jamie Quinn\",\"Laura O'Brien\"]",
+			"[\"Daniel Lowry\",\"Sean Boyle\"]",
+			"[\"Dakota Mays\",\"Lilianna Gonzalez\"]",
+			"[\"James Jackson\",\"Larry Jameson\"]",
+			"[\"Larry Jameson\",\"Aoife Doloras\"]",
+			"[\"Larry Jameson\",\"Laura O'Brien\"]",
+			"[\"Laura O'Brien\",\"Jamie Quinn\"]",
+			"[\"Aoife Doloras\",\"Lora Dwane\"]",
+			"[\"Dakota Mays\",\"Makai Hensley\"]",
+			"[\"Lilianna Gonzalez\",\"Dakota Mays\"]",
+			"[\"Jamie Quinn\",\"Aoife Doloras\"]",
+			"[\"Dakota Mays\",\"Lilianna Gonzalez\"]",
+			"[\"Sean Boyle\",\"Aoife Doloras\"]",
+			"[\"Sean Boyle\",\"James Jackson\"]",
+			"[\"Lilianna Gonzalez\",\"Dakota Mays\"]",
+			"[\"Dakota Mays\",\"Makai Hensley\"]",
+			"[\"Dakota Mays\",\"Lilianna Gonzalez\"]",
+			"[\"Makai Hensley\",\"Lilianna Gonzalez\"]",
+			"[\"Daniel Lowry\",\"James Jackson\"]",
+			"[\"Aoife Doloras\",\"Daniel Lowry\"]",
+			"[\"Dakota Mays\",\"Makai Hensley\"]",
+			"[\"Jamie Quinn\",\"Laura O'Brien\"]",
+			"[\"Sean Boyle\",\"James Jackson\"]"
+		]
+	}
+]
