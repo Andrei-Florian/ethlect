@@ -143,10 +143,10 @@ async function generateCandidateIDs(_candidates, _count, _existingIDs) {
 			let ids = [];
 
 			for (let j = 0; j < _count; j++) {
-				let candidateID = randomIntFromInterval(100000, 999999);
+				let candidateID = randomIntFromInterval(100000000, 999999999);
 
 				while (candidateDump.includes(candidateID)) {
-					candidateID = randomIntFromInterval(100000, 999999);
+					candidateID = randomIntFromInterval(100000000, 999999999);
 				}
 
 				ids.push(candidateID);

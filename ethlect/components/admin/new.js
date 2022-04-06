@@ -52,7 +52,10 @@ class NewElectionForm extends Component {
 		const file = event.target.files[0];
 
 		if (file) {
-			if (file.type === 'application/vnd.ms-excel') {
+			if (
+				file.type === 'application/vnd.ms-excel' ||
+				file.type === 'text/csv'
+			) {
 				const reader = new FileReader();
 
 				reader.onload = async () => {
@@ -453,7 +456,7 @@ class NewElectionForm extends Component {
 	}
 
 	handleCopy = async (event) => {
-		const key = event.target.id.substring(12, 13);
+		let key = event.target.id.substring(12, 13);
 
 		navigator.clipboard
 			? navigator.clipboard.writeText(

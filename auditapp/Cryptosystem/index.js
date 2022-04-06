@@ -542,7 +542,7 @@ async function proveSecondProof(g, p, y, _proof) {
 async function createHash(_message) {
 	try {
 		const hashedPassword = crypto
-			.createHash('sha256')
+			.createHash('sha384')
 			.update(_message, 'utf8')
 			.digest('base64');
 		return { success: true, hash: hashedPassword };
