@@ -28,16 +28,15 @@ class Login extends Component {
 		let error = {};
 
 		// check that all fields are filled in
-		if (
-			this.state.email === '' ||
-			this.state.password === '' ||
-			this.state.token === ''
-		) {
+		if (this.state.email === '' || this.state.password === '') {
 			error.fields = true;
 		}
 
 		// check the length of the 2FA token
-		if (this.state.token.length !== 6) {
+		if (
+			process.env.NEXT_PUBLIC_ENABLE_2FA == 'true' &&
+			(this.state.token.length !== 6 || this.state.token === '')
+		) {
 			error.token = true;
 		}
 
@@ -189,45 +188,55 @@ class Login extends Component {
 														}}
 													/>
 												</Form.Group>
-												<Form.Group
-													className='mb-3'
-													controlId='2FA Token'
-												>
-													<Form.Label>
-														2FA Code
-													</Form.Label>
-													<Form.Control
-														type='number'
-														value={this.state.token}
-														placeholder='972819'
-														isInvalid={
-															this.state
-																.formValidated &&
-															(this.state
-																.formError
-																.token ||
-																!this.state
-																	.token)
-														}
-														isValid={
-															this.state
-																.formValidated &&
-															(!this.state
-																.formError
-																.token ||
+												{process.env
+													.NEXT_PUBLIC_ENABLE_2FA ==
+												'true' ? (
+													<Form.Group
+														className='mb-3'
+														controlId='2FA Token'
+													>
+														<Form.Label>
+															2FA Code
+														</Form.Label>
+														<Form.Control
+															type='number'
+															value={
+																this.state.token
+															}
+															placeholder='972819'
+															isInvalid={
 																this.state
-																	.token)
-														}
-														onChange={(event) => {
-															this.setState({
-																token: event
-																	.target
-																	.value,
-																formValidated: false,
-															});
-														}}
-													/>
-												</Form.Group>
+																	.formValidated &&
+																(this.state
+																	.formError
+																	.token ||
+																	!this.state
+																		.token)
+															}
+															isValid={
+																this.state
+																	.formValidated &&
+																(!this.state
+																	.formError
+																	.token ||
+																	this.state
+																		.token)
+															}
+															onChange={(
+																event
+															) => {
+																this.setState({
+																	token: event
+																		.target
+																		.value,
+																	formValidated: false,
+																});
+															}}
+														/>
+													</Form.Group>
+												) : (
+													<></>
+												)}
 												<Button
 													variant='primary'
 													type='submit'

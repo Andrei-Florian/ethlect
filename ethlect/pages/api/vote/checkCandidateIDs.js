@@ -45,7 +45,6 @@ async function checkCandidates(_givenCandidates, _actualCandidates) {
 		// ensure all fields are unique
 		let reps = [];
 
-		console.log(_givenCandidates);
 		for (let i = 0; i < _givenCandidates.length; i++) {
 			if (reps.includes(_givenCandidates[i])) {
 				return { success: true, match: false };

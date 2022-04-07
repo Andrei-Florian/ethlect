@@ -227,9 +227,6 @@ export default async function createElection(req, res) {
 						);
 
 						if (elgamal.success) {
-							console.log('elgamal');
-							console.log(elgamal);
-
 							// get the private key
 							const privateKey = await getPrivateKey(
 								elgamal.instance

@@ -15,6 +15,7 @@ class NewElectionForm extends Component {
 		userEircode: '',
 		userEmail: '',
 		userPassword: '',
+		userConstituency: '',
 		userPasswordConfirm: '',
 		userID: null,
 		key2FA: '',
@@ -52,7 +53,18 @@ class NewElectionForm extends Component {
 			error.eircode = true;
 		}
 
-		if (error.fields === true || error.eircode === true) {
+		// ensure the constituency filed is filled in if not checking the register
+		if (process.env.NEXT_PUBLIC_ENABLE_VOTERREGISTRY == 'false') {
+			if (this.state.userConstituency === '') {
+				error.constituency = true;
+			}
+		}
+
+		if (
+			error.fields === true ||
+			error.eircode === true ||
+			error.constituency === true
+		) {
 			this.setState({ formError: error, formValidated: true });
 			return { success: false, error: error };
 		} else {
@@ -63,39 +75,43 @@ class NewElectionForm extends Component {
 
 	checkRegister = async () => {
 		try {
-			const fetchString = process.env.NEXT_PUBLIC_API_CHECKREGISTER;
+			if (process.env.NEXT_PUBLIC_ENABLE_VOTERREGISTRY == 'true') {
+				const fetchString = process.env.NEXT_PUBLIC_API_CHECKREGISTER;
 
-			const postRequest = JSON.stringify({
-				firstName: this.state.userFirstName,
-				lastName: this.state.userLastName,
-				eircode: this.state.userEircode,
-			});
-
-			// send the request
-			const res = await fetch(fetchString, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: postRequest,
-			});
-
-			const resJSON = await res.json();
-
-			if (resJSON.success && resJSON.match) {
-				this.setState({
-					alertError: false,
+				const postRequest = JSON.stringify({
+					firstName: this.state.userFirstName,
+					lastName: this.state.userLastName,
+					eircode: this.state.userEircode,
 				});
 
-				return { success: true };
-			} else {
-				this.setState({
-					alertError: true,
-					formValidated: false,
+				// send the request
+				const res = await fetch(fetchString, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: postRequest,
 				});
 
-				return { success: false };
+				const resJSON = await res.json();
+
+				if (resJSON.success && resJSON.match) {
+					this.setState({
+						alertError: false,
+					});
+
+					return { success: true };
+				} else {
+					this.setState({
+						alertError: true,
+						formValidated: false,
+					});
+
+					return { success: false };
+				}
 			}
+
+			return { success: true };
 		} catch (error) {
 			console.log(error);
 			return { success: false };
@@ -155,6 +171,7 @@ class NewElectionForm extends Component {
 				eircode: this.state.userEircode,
 				email: this.state.userEmail,
 				password: this.state.userPassword,
+				constituency: this.state.userConstituency,
 			});
 
 			// send the request
@@ -410,7 +427,7 @@ class NewElectionForm extends Component {
 	}
 
 	handleCopy = async (event) => {
-		const key = event.target.id.substring(12, 13);
+		let key = event.target.id.substring(12, 13);
 
 		navigator.clipboard
 			? navigator.clipboard.writeText(
@@ -471,7 +488,7 @@ class NewElectionForm extends Component {
 					controlId='formHorizontalEmail'
 				>
 					<Form.Label column sm={3}>
-						Firstname
+						First Name
 					</Form.Label>
 					<Col sm={9}>
 						<Form.Control
@@ -501,7 +518,7 @@ class NewElectionForm extends Component {
 					controlId='formHorizontalEmail'
 				>
 					<Form.Label column sm={3}>
-						Lastname
+						Last Name
 					</Form.Label>
 					<Col sm={9}>
 						<Form.Control
@@ -536,7 +553,7 @@ class NewElectionForm extends Component {
 					<Col sm={9}>
 						<Form.Control
 							type='address'
-							placeholder='D02 9QQ'
+							placeholder='D0209QQ'
 							isValid={
 								this.state.formValidated &&
 								this.state.userEircode.length === 7
@@ -555,6 +572,40 @@ class NewElectionForm extends Component {
 						/>
 					</Col>
 				</Form.Group>
+				{process.env.NEXT_PUBLIC_ENABLE_VOTERREGISTRY == 'false' ? (
+					<Form.Group
+						as={Row}
+						className='mb-3'
+						controlId='formHorizontalEmail'
+					>
+						<Form.Label column sm={3}>
+							Constituency
+						</Form.Label>
+						<Col sm={9}>
+							<Form.Control
+								type='text'
+								placeholder='Fingal County Council'
+								isValid={
+									this.state.formValidated &&
+									this.state.userConstituency
+								}
+								isInvalid={
+									this.state.formValidated &&
+									!this.state.userConstituency
+								}
+								value={this.state.userConstituency}
+								onChange={(event) => {
+									this.setState({
+										userConstituency: event.target.value,
+										formValidated: false,
+									});
+								}}
+							/>
+						</Col>
+					</Form.Group>
+				) : (
+					<></>
+				)}
 			</Form>
 		);
 	}

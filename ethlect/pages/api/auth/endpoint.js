@@ -59,13 +59,17 @@ async function checkDB(_details) {
 
 async function checkToken(_token, _secret) {
 	try {
-		const result = speakeasy.totp.verify({
-			secret: _secret,
-			encoding: 'ascii',
-			token: _token,
-		});
+		if (process.env.NEXT_PUBLIC_ENABLE_2FA == 'true') {
+			const result = speakeasy.totp.verify({
+				secret: _secret,
+				encoding: 'ascii',
+				token: _token,
+			});
 
-		return result;
+			return result;
+		}
+
+		return true;
 	} catch (error) {
 		return false;
 	}

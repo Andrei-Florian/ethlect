@@ -188,7 +188,6 @@ export default async function handler(req, res) {
 		}
 
 		console.log('[INFO] Received event from stripe');
-		console.log(event);
 
 		// switch through the event types
 		switch (event.type) {

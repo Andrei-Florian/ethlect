@@ -584,8 +584,6 @@ async function generateChallengeBits(_ballots, n) {
 		const parsedBallots = await parseGeneratedBallots(_ballots, false);
 		if (!parsedBallots.success) return { success: false };
 
-		console.log('parsedBallots', parsedBallots);
-
 		// stringify the ballot sets
 		const ballotsJSON = JSON.stringify(parsedBallots.proofs);
 

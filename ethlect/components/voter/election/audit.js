@@ -69,7 +69,6 @@ class ElectionsNow extends Component {
 			const newShuffle4 = newShuffle3.replaceAll('}"', '}');
 			const newShuffle5 = newShuffle4.replaceAll('"{', '{');
 
-			console.log('processed');
 			return newShuffle5;
 		} catch (error) {
 			console.log(error);

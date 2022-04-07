@@ -5,6 +5,26 @@ import crypto from 'crypto';
 
 dbConnect(process.env.DB_CONNECTION);
 
+async function checkAccount(_firstName, _lastName, _eircode) {
+	try {
+		const match = await Authentication.findOne({
+			firstName: _firstName.toLowerCase(),
+			lastName: _lastName.toLowerCase(),
+			address: _eircode.toLowerCase(),
+			accountType: 'voter',
+		});
+
+		if (match) {
+			return { success: true, match: true, data: match };
+		} else {
+			return { success: true, match: false };
+		}
+	} catch {
+		console.log(error);
+		return { success: false };
+	}
+}
+
 async function checkRegister(_firstName, _lastName, _eircode) {
 	try {
 		const fetchString = process.env.API_REGISTER_CHECK;
@@ -104,10 +124,8 @@ async function createUserInstance(
 ) {
 	try {
 		let requireStripeID = false;
-
-		if (process.env.USE_STRIPE_IDENTITY === 'false') {
+		if (process.env.NEXT_PUBLIC_ENABLE_STRIPEIDENTITY == 'false')
 			requireStripeID = true;
-		}
 
 		const userObject = {
 			userID: _userID,
@@ -115,8 +133,8 @@ async function createUserInstance(
 			idVerified: requireStripeID,
 			stripeSessionID: null,
 			accountType: 'voter',
-			firstName: _firstName,
-			lastName: _lastName,
+			firstName: _firstName.toLowerCase(),
+			lastName: _lastName.toLowerCase(),
 			email: _email,
 			password: _password,
 			salt: _salt,
@@ -150,82 +168,115 @@ export default async function createUser(req, res) {
 			data.email &&
 			data.password
 		) {
-			// hash the password
-			const hashedPassword = await hashPassword(data.password);
+			// check if account already exists
+			const checkAccountRes = await checkAccount(
+				data.firstName,
+				data.lastName,
+				data.eircode
+			);
 
-			if (hashedPassword.success) {
-				// check the register
-				const register = await checkRegister(
-					data.firstName,
-					data.lastName,
-					data.eircode
-				);
+			if (checkAccountRes.success && !checkAccountRes.match) {
+				// hash the password
+				const hashedPassword = await hashPassword(data.password);
 
-				if (register.success && register.match) {
-					// generate 2FA key
-					const secretKey = await generate2FASecret(
-						data.firstName,
-						data.lastName
-					);
+				if (hashedPassword.success) {
+					let register;
 
-					if (secretKey.success) {
-						// get a user ID
-						const userID = await getUserID();
+					// check the register if integration is enabled
+					if (
+						process.env.NEXT_PUBLIC_ENABLE_VOTERREGISTRY == 'true'
+					) {
+						register = await checkRegister(
+							data.firstName,
+							data.lastName,
+							data.eircode
+						);
+					} else {
+						register = {
+							success: true,
+							match: true,
+							data: {
+								eircode: data.eircode,
+								address: {
+									region: {
+										longDescription: data.constituency,
+									},
+								},
+							},
+						};
+					}
 
-						if (userID.success) {
-							// add user to database
-							const instance = await createUserInstance(
-								userID.documentCount,
-								data.firstName,
-								data.lastName,
-								data.email,
-								hashedPassword.hashedPassword,
-								hashedPassword.salt,
-								secretKey.secret.ascii,
-								register.data.eircode,
-								register.data.address.region.longDescription
-							);
+					if (register.success && register.match) {
+						// generate 2FA key
+						const secretKey = await generate2FASecret(
+							data.firstName,
+							data.lastName
+						);
 
-							if (instance.success) {
-								res.status(200).json({
-									success: true,
-									key2FA: secretKey.secret.otpauth_url,
-									userID: userID.documentCount,
-								});
+						if (secretKey.success) {
+							// get a user ID
+							const userID = await getUserID();
+
+							if (userID.success) {
+								// add user to database
+								const instance = await createUserInstance(
+									userID.documentCount,
+									data.firstName,
+									data.lastName,
+									data.email,
+									hashedPassword.hashedPassword,
+									hashedPassword.salt,
+									secretKey.secret.ascii,
+									register.data.eircode,
+									register.data.address.region.longDescription
+								);
+
+								if (instance.success) {
+									res.status(200).json({
+										success: true,
+										key2FA: secretKey.secret.otpauth_url,
+										userID: userID.documentCount,
+									});
+								} else {
+									res.status(500).json({
+										success: false,
+										error: 'Error adding user to database',
+									});
+								}
 							} else {
 								res.status(500).json({
 									success: false,
-									error: 'Error adding user to database',
+									error: 'Failed to get user ID',
 								});
 							}
 						} else {
 							res.status(500).json({
 								success: false,
-								error: 'Failed to get user ID',
+								error: 'Error generating 2FA key',
 							});
 						}
 					} else {
 						res.status(500).json({
 							success: false,
-							error: 'Error generating 2FA key',
+							error: 'Error checking the voter register',
 						});
 					}
 				} else {
 					res.status(500).json({
 						success: false,
-						error: 'Error checking the voter register',
+						error: 'Error hashing provided password',
 					});
 				}
 			} else {
-				res.status(500).json({
+				res.status(401).json({
 					success: false,
-					error: 'Error hashing provided password',
+					error: 'Incomplete data sent',
 				});
 			}
 		} else {
-			res.status(401).json({
+			res.status(500).json({
 				success: false,
-				error: 'Incomplete data sent',
+				error: 'Account already exists',
 			});
 		}
 	} else {

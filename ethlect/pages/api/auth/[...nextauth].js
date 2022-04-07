@@ -1,27 +1,35 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
+let credentials = {
+	username: {
+		label: 'Email',
+		type: 'email',
+		placeholder: 'jsmith',
+	},
+	password: {
+		label: 'Password',
+		type: 'password',
+		placeholder: '*********',
+	},
+};
+
+if (process.env.NEXT_PUBLIC_ENABLE_2FA == 'true') {
+	credentials += {
+		token: {
+			label: '2FA Token',
+			type: 'number',
+			placeholder: '021810',
+		},
+	};
+}
+
 export default NextAuth({
 	providers: [
 		CredentialsProvider({
 			name: 'Credentials',
-			credentials: {
-				username: {
-					label: 'Email',
-					type: 'email',
-					placeholder: 'jsmith',
-				},
-				password: {
-					label: 'Password',
-					type: 'password',
-					placeholder: '*********',
-				},
-				token: {
-					label: '2FA Token',
-					type: 'number',
-					placeholder: '021810',
-				},
-			},
+			credentials: credentials,
+
 			async authorize(credentials) {
 				const fetchString = process.env.API_AUTH_ENDPOINT;
 				const res = await fetch(fetchString, {
@@ -40,7 +48,7 @@ export default NextAuth({
 			},
 		}),
 	],
-	session: { jwt: true },
+	session: { jwt: true, maxAge: 60 * 30 }, // 30 minute session
 	callbacks: {
 		async session({ session, token }) {
 			session.user = token.user;
