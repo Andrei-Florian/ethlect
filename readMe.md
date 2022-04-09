@@ -30,13 +30,14 @@ All stages of the tabulation process are made publicly available together with c
 
 This repository centralises all public documents, code and tests related to ethlect. The table below gives a high-level overview of the repo's structure.
 
-| Item           | Description                                                                                                                                                                   |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Project Paper  | The complete ethlect. paper                                                                                                                                                   |
-| ethlect        | The source code of the ethlect. application                                                                                                                                   |
-| keyholders app | The source code of the keyholders application (this app can be used to operate cryptographic functions using RSA keys and generate keypairs)                                  |
-| audit app      | The source code of the audit app. This app can be used to easily upload and digest the proof documents downloadable from ethlect.'s audit page and prove the proofs provided. |
-| mock election  | The documents related to the mock election conducted using the application.                                                                                                   |
+| Item            | Description                                                                                                                                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Project Paper   | The complete ethlect. paper                                                                                                                                                   |
+| ethlect         | The source code of the ethlect. application                                                                                                                                   |
+| keyholders app  | The source code of the keyholders application (this app can be used to operate cryptographic functions using RSA keys and generate keypairs)                                  |
+| audit app       | The source code of the audit app. This app can be used to easily upload and digest the proof documents downloadable from ethlect.'s audit page and prove the proofs provided. |
+| votecounter app | The source code of the votecounter app. This application is used to count the votes after the completion of an election and identify the elected candidates.                  |
+| mock election   | The documents related to the mock election conducted using the application.                                                                                                   |
 
 # Getting Started
 
@@ -155,6 +156,18 @@ The audit app requires no setup and runs out of the box after the lines above ar
 -   The links above assume that the app is hosted at `http://localhost:3000/`, make sure to update them if you are hosting at a different local or global URL
 -   To prove a proof outputted by the ethlect. application, head over to `/${electionID}/audit` where `electionID` is the ID of the election you want to audit, and identify the proof you wish to verify. You can download this proof by pressing the download button.
 -   Back in the audit app, upload the file in the form on the index page and click the "verify" button to verify the proof.
+
+### Votecounter App
+
+```
+NEXT_PUBLIC_API_ROUTE=http://localhost:3000/api/count
+```
+
+The audit app requires no setup and runs out of the box after the lines above are added to the environment file.
+
+-   The links above assume that the app is hosted at `http://localhost:3000/`, make sure to update them if you are hosting at a different local or global URL
+-   To count the votes outputted by the ethlect. app, head over to `/${electionID}/audit` where `electionID` is the ID of the election you want to audit, and download the election's constituencies and results documents. You can download these documents by pressing the download button.
+-   Head back to the votecounter app and upload the documents in the form. You can then click the _Count Votes_ button to count the votes.
 
 ## Start the App
 
