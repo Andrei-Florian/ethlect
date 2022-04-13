@@ -30,18 +30,19 @@ All stages of the tabulation process are made publicly available together with c
 
 This repository centralises all public documents, code and tests related to ethlect. The table below gives a high-level overview of the repo's structure.
 
-| Item            | Description                                                                                                                                                                   |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Project Paper   | The complete ethlect. paper                                                                                                                                                   |
-| ethlect         | The source code of the ethlect. application                                                                                                                                   |
-| keyholders app  | The source code of the keyholders application (this app can be used to operate cryptographic functions using RSA keys and generate keypairs)                                  |
-| audit app       | The source code of the audit app. This app can be used to easily upload and digest the proof documents downloadable from ethlect.'s audit page and prove the proofs provided. |
-| votecounter app | The source code of the votecounter app. This application is used to count the votes after the completion of an election and identify the elected candidates.                  |
-| mock election   | The documents related to the mock election conducted using the application.                                                                                                   |
+| Item              | Description                                                                                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Project Paper     | The complete ethlect. paper                                                                                                                                                    |
+| ethlect           | The source code of the ethlect. application                                                                                                                                    |
+| keyholders app    | The source code of the keyholders application (this app can be used to operate cryptographic functions using RSA keys and generate keypairs)                                   |
+| audit app         | The source code of the audit app. This app can be used to easily upload and digest the proof documents downloadable from ethlect.'s audit page and prove the proofs provided.  |
+| votecounter app   | The source code of the votecounter app. This application is used to count the votes after the completion of an election and identify the elected candidates.                   |
+| ballotprinter app | The source code of the ballotprinter app. The ballotprinter application is intended to simulate the ballot printing process. It creates plaintext ballots that can be printed. |
+| mock election     | The documents related to the mock election conducted using the application.                                                                                                    |
 
 # Getting Started
 
-The ethlect. application, keyholders app, and audit app are packaged and ready to be downloaded and run. This section provides an overview of the steps involved in setting the applications up so you can run them yourself. Feel free to refer to the paper to learn how to navigate the app and what you can do.
+The ethlect. application, and all other apps are packaged and ready to be downloaded and run. This section provides an overview of the steps involved in setting the applications up so you can run them yourself. Feel free to refer to the paper to learn how to navigate the app and what you can do.
 
 ## Clone Repository
 
@@ -168,6 +169,25 @@ The audit app requires no setup and runs out of the box after the lines above ar
 -   The links above assume that the app is hosted at `http://localhost:3000/`, make sure to update them if you are hosting at a different local or global URL
 -   To count the votes outputted by the ethlect. app, head over to `/${electionID}/audit` where `electionID` is the ID of the election you want to audit, and download the election's constituencies and results documents. You can download these documents by pressing the download button.
 -   Head back to the votecounter app and upload the documents in the form. You can then click the _Count Votes_ button to count the votes.
+
+### BallotPrinter App
+
+```
+NUMBER_OF_AUDITABLE_BALLOTS=10
+
+NEXT_PUBLIC_API_VERIFYCONNECTIONSTRING=http://localhost:3000/api/verifyConnectionString
+NEXT_PUBLIC_API_PRINTBALLOTS=http://localhost:3000/api/print
+
+PRIVATE_API_HELPER_GENERATEAUDITABLEBALLOTS=http://localhost:3000/api/helper/generateAuditableBallots
+PRIVATE_API_HELPER_DECRYPTBALLOTS=http://localhost:3000/api/helper/decryptBallots
+PRIVATE_API_HELPER_VERIFYDECRYPTION=http://localhost:3000/api/helper/verifyDecryption
+```
+
+The ballotprinter app is ready to run out of the box. All that is required is to add the lines above to the environment file and optionally edit the number of auditable ballots to generate per constituency by editing the `NUMBER_OF_AUDITABLE_BALLOTS` field.
+
+-   The links above assume that the app is hosted at `http://localhost:3000/`, make sure to update them if you are hosting at a different local or global URL
+-   This app will decrypt the ballots generated by the ethlect. application and audit the process autonomously aiming to simulate the ballot printing process.
+-   The application will ask for a MongoDB connection string to gain access to private data in the ethlect. database, you will need to create a new user account with read-only access to the database and paste the connection string in the application's form when prompted.
 
 ## Start the App
 

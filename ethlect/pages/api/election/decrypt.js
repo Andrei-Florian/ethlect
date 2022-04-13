@@ -76,13 +76,13 @@ async function getPrivateKey(_thresholdKeys) {
 }
 
 async function makeHash(val) {
-	return crypto.createHash('sha256').update(val, 'utf8').digest();
+	return crypto.createHash('sha384').update(val, 'utf8').digest();
 }
 
 async function hashElGamalPrivatekey(_privateKey, _salt) {
 	try {
 		const hashedPrivateKey = crypto
-			.createHash('sha256')
+			.createHash('sha384')
 			.update(_privateKey, 'utf8')
 			.update(await makeHash(_salt))
 			.digest('base64');

@@ -213,7 +213,7 @@ class Index extends Component {
 					<Card.Text>
 						Use the form below to upload the election constituencies
 						and the election results documents. These documents can
-						be downloaded from the election's audit page on the
+						be downloaded from the election audit page on the
 						ethlect. app.
 					</Card.Text>
 					{this.renderForm()}

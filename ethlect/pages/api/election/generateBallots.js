@@ -561,7 +561,7 @@ async function createBallotSetsForProof(_inputBallots, _elgamal, n) {
 }
 
 async function makeHash(val) {
-	return crypto.createHash('sha256').update(val, 'utf8').digest();
+	return crypto.createHash('sha384').update(val, 'utf8').digest();
 }
 
 function convertString(_input) {

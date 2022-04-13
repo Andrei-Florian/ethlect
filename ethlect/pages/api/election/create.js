@@ -67,14 +67,14 @@ async function getPrivateKey(_elgamal) {
 }
 
 async function makeHash(val) {
-	return crypto.createHash('sha256').update(val, 'utf8').digest();
+	return crypto.createHash('sha384').update(val, 'utf8').digest();
 }
 
 async function hashElGamalPrivatekey(_privateKey) {
 	try {
 		const salt = crypto.randomBytes(16).toString('hex');
 		const hashedPrivateKey = crypto
-			.createHash('sha256')
+			.createHash('sha384')
 			.update(_privateKey, 'utf8')
 			.update(await makeHash(salt))
 			.digest('base64');

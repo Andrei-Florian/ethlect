@@ -329,6 +329,9 @@ async function createSecondProof(
 		const parsedX2 = Utils.parseBigInt(x2);
 		const parsedP = Utils.parseBigInt(p);
 
+		console.log('x1', x1);
+		console.log('x2', x2);
+
 		const key = parsedX1
 			.subtract(parsedX2)
 			.mod(parsedP.subtract(BigInt.ONE));
@@ -454,4 +457,5 @@ export default {
 	createSecondProof,
 	createDecryptionProof,
 	generateKey,
+	createHash,
 };

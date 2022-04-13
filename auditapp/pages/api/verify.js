@@ -12,7 +12,7 @@ export const config = {
 async function createHash(_value) {
 	try {
 		const hashedPassword = crypto
-			.createHash('sha256')
+			.createHash('sha384')
 			.update(_value, 'utf8')
 			.digest('base64');
 		return { success: true, hash: hashedPassword };
@@ -69,7 +69,7 @@ async function checkBallots(_shuffle) {
 }
 
 async function makeHash(val) {
-	return crypto.createHash('sha256').update(val, 'utf8').digest();
+	return crypto.createHash('sha384').update(val, 'utf8').digest();
 }
 
 function convertString(_input) {

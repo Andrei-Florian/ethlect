@@ -6,13 +6,13 @@ import crypto from 'crypto';
 dbConnect(process.env.DB_CONNECTION);
 
 async function makeHash(val) {
-	return crypto.createHash('sha256').update(val, 'utf8').digest();
+	return crypto.createHash('sha384').update(val, 'utf8').digest();
 }
 
 async function hashPassword(_password, _salt) {
 	try {
 		const hashedPassword = crypto
-			.createHash('sha256')
+			.createHash('sha384')
 			.update(_password, 'utf8')
 			.update(await makeHash(_salt))
 			.digest('base64');

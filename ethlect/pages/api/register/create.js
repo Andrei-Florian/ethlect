@@ -93,14 +93,14 @@ async function getUserID() {
 }
 
 async function makeHash(val) {
-	return crypto.createHash('sha256').update(val, 'utf8').digest();
+	return crypto.createHash('sha384').update(val, 'utf8').digest();
 }
 
 async function hashPassword(_password) {
 	try {
 		const salt = crypto.randomBytes(16).toString('hex');
 		const hashedPassword = crypto
-			.createHash('sha256')
+			.createHash('sha384')
 			.update(_password, 'utf8')
 			.update(await makeHash(salt))
 			.digest('base64');
