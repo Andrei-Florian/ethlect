@@ -6,25 +6,19 @@
 
 ethlect. is the first end-to-end verifiable, internet voting application for elections run using the PR-STV model.
 
-ethlect. employs a hybrid approach to internet voting that allows it to be the first internet voting implementation that can assure the security of the application’s frontend.
+ethlect. is an end-to-end verifiable, internet voting system that employs a hybrid approach to remote voting and various cryptographic techniques guaranteeing complete transparency and auditability while ensuring the secret ballot.
 
-A physical layer is added to the application, similar to postal voting, where voters introduce their votes into the application using paper ballots received. The voter never introduces their direct candidate selection but instead ciphertexts representing their candidate choices. This allows for an unprecedented level of security and anonymity where nor the application, nor any malicious actors can identify the voter’s selections.
+The system employs code voting for the marking of ballots: the electoral authority verifiably generates and distributes physical ballots via mail to voters. Ballots consist of the candidates a voter can vote for and a three-digit numeric representing each candidate.
 
-The application allows for voters to verify that their vote was cast successfully, and all ballots are traceable throughout the application once they are cast. This allows for third parties to audit the system and ensure the correct tabulation of votes.
+Upon the receipt of a ballot, a voter can log into the ethlect. application on their personal computing device and cast their ballot digitally by inputting the unique ID of the ballot and the codes representing each candidate they wish to vote for in order of preference.
 
-ethlect. is designed specifically for Irish General Elections and integrates with existing public systems to validate voter identities and ensure the system’s integrity.
+The implementing of code voting circumvents the unavoidable security vulnerabilities in voter hardware such that an attacker cannot modify a ballot with intent nor compromise voter anonymity by monitoring voter selections.
 
-Voters that are already registered to vote can follow the online registration process to use the app to cast their ballot.
+The application allows voters to verify that their vote was recorded as intended without compromising their anonymity. Once a vote is recorded in the system, a series of verifiable cryptographic processes and shuffles anonymise ballots while allowing for the independent auditing of the election to ensure its integrity at all stages.
 
-After the voter registration period, the election is prepared by the election authorities. In this process, an election is started using the application by inputting the candidates running for each constituency and distributing keys, ballots are generated for all candidates in a verifiable manner (the candidates are encrypted for all candidates on all ballots), the ballots are then printed at a secure location (again in a verifiable manner) and posted to the voters.
+ethlect. is designed specifically for the Irish Electoral System running on PR-STV but can be easily adjusted to fit other systems such as first-past-the-post.
 
-The electoral period is then started. Voters can use their physical ballots to introduce their candidate selection in preferential order. This is done by introducing the ciphertexts representing each candidate. The application will ensure that the ballot was marked correctly and will then add the ballot to the virtual ballot box.
-The voter can verify that their ballot was cast correctly either through the application or by querying the public database themselves. This process is designed such that only the voter can confirm the correct casting of the ballot in a way that prevents third parties from identifying the voter’s choices.
-
-After the completion of the electoral period, the election administration body can start the tabulation process. This process involves the re-encryption and cryptographic shuffle of ballots in a verifiable fashion as to lose the correlation between a ballot and the voter that cast it.
-
-Ultimately, after the ballots were shuffled a few times, ten keyholders that hold decryption keys are to combine their keys and decrypt the ballots verifiably.
-All stages of the tabulation process are made publicly available together with cryptographic proofs that attest the correctness of each shuffle and decryption of the ballot set. This allows third parties to assert the integrity of the system.
+The application’s integration with the Dublin Voter Registry and the Stripe Identity service allows for the digital onboarding of registered voters in seconds.
 
 # Repository Structure
 
